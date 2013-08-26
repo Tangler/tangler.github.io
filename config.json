@@ -1,0 +1,24 @@
+{
+	"template_dir": "templates", 
+	"content_dir": "contents",
+	"output_dir": ".",
+
+	"server": { 
+		"port": 9009
+	},
+    "parser": {
+        "markdown": {
+            "gfm": true,
+            "pedantic": false,
+            "sanitize": true
+        }
+    },
+
+	"bundles": {
+		"/css/all.css": [
+			"/css/normalize.css",	
+			"/css/main.css",
+			"/css/site.less"
+		]
+	}
+}
