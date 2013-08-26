@@ -1,0 +1,102 @@
+@font-face {
+    font-family:"DinBd";
+    src:url("http://www.linkorb.com/d/meta/tier1/ttf/DINBd___.ttf");
+}
+
+
+body {
+    background-color: #f0f0f0;
+}
+
+a {
+    color: #ff8000;
+}
+header {
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #b3b3b3;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
+}
+
+header h1 {
+    font-size: 300%;
+    text-align: center;
+    
+    font-family: "DinBd", arial;
+    font-weight: normal;
+    text-transform: lowercase; 
+    color:#ff8000;
+}
+
+header .tagline {
+    font-weight: bold;
+}
+
+header .motto {
+    margin: 5px;
+    font-style: italic;
+    color: #808080;
+    margin-bottom: 30px;
+}
+
+.motto b {
+    color: #404040;
+}
+
+h1 {
+    text-align: left;
+    font-size: 200%; 
+    font-family: "DinBd", arial;
+    font-weight: normal;
+    text-transform: lowercase; 
+    color:#000000;
+
+}
+
+.prettyprinted {
+    display: block;
+    font-size: 80%;
+}
+
+p code {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.navbar {
+    text-align: left;
+    background-color: #f0f0f0;
+}
+.navbar li a {
+    font-family: "DinBd", arial;
+    font-weight: normal;
+    text-transform: lowercase; 
+    color: #404040;
+}
+.navbar a:hover {
+    color: #000000;
+}
+
+pre {
+      border: 1px solid #e0e0e0;
+        border-radius: 4px;
+          margin: 10px 10px 40px 10px;
+            padding: 10px;
+              background-color: #ffffff;
+                overflow: auto;
+                  font-size: 14px;
+                    font-family: Consolas, "Liberation Mono", Courier, monospace;
+                }
+
+                code {
+                      white-space: pre;
+                        color: rgba(0,0,0, 1);
+                          .keyword         { font-weight: bold; color: #6089d4; }
+                            .string, .regexp { color: green }
+                              .class, .special { color: #6089d4 }
+                                .number          { color: red }
+                                  .comment         { color: grey }
+                              }

@@ -17,12 +17,17 @@
 
     <body>
 			<header>
-				<h1>{{#upcase}}{{site-title}}{{/upcase}}</h1>
+            <h1>{{site-title}}</h1>
+            <div class="tagline">The Open Source Integration Engine</div>
+            <div class="motto">Are you familiar with <b>IFTTT</b> or <b>Zapier</b>? Then you'll feel right at home!</div>
 
-				<ul class="navbar">
-				{{#navbar}}
-					<li><a href="{{{href}}}">{{label}}</a>
-				{{/navbar}}
-				</ul>
 			</header>
+            
+            <ul class="navbar">
+            {{#navbar}}
+            <li><a href="{{{href}}}">{{label}}</a></li>
+            <li>::</li>
+            {{/navbar}}
+            <li><a href="http://github.com/Tangler">GitHub</a></li>
+            </ul>
 
