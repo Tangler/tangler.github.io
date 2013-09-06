@@ -61,9 +61,9 @@ This will start Tangler, which will monitor the directory `/tmp/demo.in` for new
 As soon as you create a new file there, 
 Tangler will e-mail that file to you.
 
-## Extendable
+## Extendable through modules
 
-Tangler is super extendable through a simple PHP module system. Check the manual about [creating your own modules](manual-creating-modules.html)
+Tangler is super extendable through a simple PHP module system. Read all about the [modules](modules.html).
 
 ## Source code and contributions:
 
@@ -72,3 +72,5 @@ Ready to hack with us? Check out the project and it's modules on GitHub:
 * [github](http://github.com/Tangler)
 
 Developed a new Module yourself? Please let us know so we can share it on our module list page!
+
+

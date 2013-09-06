@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>Tangler</title>
+			<meta name="description" content="">
+			<meta name="viewport" content="width=device-width">
+
+			<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+			<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/site.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/my.css"> 
+    </head>
+
+    <body>
+			<header>
+            <h1>Tangler</h1>
+            <div class="tagline">The Open Source Integration Engine</div>
+            <div class="motto">Are you familiar with <b>IFTTT</b> or <b>Zapier</b>? Then you'll feel right at home!</div>
+
+			</header>
+            
+            <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li>::</li>
+            <li><a href="/modules">Modules</a></li>
+            <li>::</li>
+            <li><a href="/modules-wishlist">Wishlist</a></li>
+            <li>::</li>
+            <li><a href="http://github.com/Tangler">GitHub</a></li>
+            </ul>
+
+
+		<div role="main">
+		<h1>Module wishlist</h1>
+<p>Tangler is a new project, and many modules remain to be implemented.
+If you are interested in helping out, please do!</p>
+<p>Here is a list of modules that we&#39;d think will be valuable to add.
+For each of them we try to maintain a list of urls to api docs, composer modules, or other useful resources.
+For each module we specify ideas for triggers and actions.</p>
+<h2>Dropbox</h2>
+<ul>
+<li><a href="https://www.dropbox.com/developers/core/docs">API Docs</a></li>
+<li><a href="https://github.com/dropbox/dropbox-sdk-php">Composer module</a></li>
+</ul>
+<h3>Trigger</h3>
+<ul>
+<li>New file in folder</li>
+<li>New directory</li>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Create textfile</li>
+<li>Append textfile</li>
+<li>Copy file from trigger (copy existing file or attachment from the trigger)</li>
+<li>Create directory</li>
+</ul>
+<h2>Twitter</h2>
+<h3>Trigger</h3>
+<ul>
+<li>Search Mention: triggers from mention of search term</li>
+<li>My Tweet: when you tweet something new yourself</li>
+<li>Search &amp; Geo Mention: Search mention in specific geo region</li>
+<li>New Follower </li>
+<li>User tweet: when selected user tweets</li>
+<li>New favorited</li>
+<li>PM ?</li>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Create Tweet</li>
+<li>PM ?</li>
+</ul>
+<h2>Schedule / Clock</h2>
+<p>Primarily to trigger events happening and specific intervals, times, days, etc</p>
+<h2>Excel</h2>
+<p>Append data to an excel sheet, or generate new ones</p>
+<h2>Facebook Private + Pages</h2>
+<h3>Trigger</h3>
+<ul>
+<li>New PM</li>
+<li>New post by</li>
+<li>New post self</li>
+<li>New Tag</li>
+<li>New Comment on own post</li>
+</ul>
+<h2>Mollie</h2>
+<p>Send SMS messages through Mollie API</p>
+<ul>
+<li><a href="http://www.mollie.nl">Website</a></li>
+<li><a href="https://packagist.org/packages/linkorb/mollie-sms-php">Composer module</a></li>
+</ul>
+<h2>Amazon S3</h2>
+<h3>Trigger</h3>
+<ul>
+<li>New object</li>
+<li>New bucket</li>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Create bucket</li>
+<li>Copy file from trigger</li>
+<li>Create Text Object</li>
+</ul>
+<h2>HipChat</h2>
+<ul>
+<li><a href="https://www.hipchat.com/docs/api">API docs</a></li>
+<li><a href="https://github.com/hipchat/hipchat-php">Composer module</a></li>
+</ul>
+<h3>Trigger</h3>
+<ul>
+<li>New message in room</li>
+<li>New room</li>
+</ul>
+<h3>Action</h3>
+<ul>
+<li><del>Send message</del></li>
+<li>Create Room Topic</li>
+</ul>
+<h2>GitHub</h2>
+<ul>
+<li><a href="http://developer.github.com/v3/">API Docs</a></li>
+<li><a href="https://github.com/KnpLabs/php-github-api">Composer module</a></li>
+</ul>
+<h3>Trigger</h3>
+<ul>
+<li>New Commit Comment</li>
+<li>New Pull Request</li>
+<li>New Organization (?)</li>
+<li>New Gist</li>
+<li>New Notification</li>
+<li>New Watcher</li>
+<li>New Repository</li>
+<li>New Branch</li>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Create Issue</li>
+<li>Create Pull Request</li>
+</ul>
+<h2>Imap</h2>
+<ul>
+<li><a href="http://nl1.php.net/manual/en/book.imap.php">PHP Module</a></li>
+<li><a href="https://github.com/zetacomponents/Mail">Composer module - zetacomponents</a></li>
+</ul>
+<h3>Trigger</h3>
+<ul>
+<li>New Email</li>
+<li>New Mailbox</li>
+</ul>
+<h3>Action</h3>
+<p>None</p>
+<h2>MailChimp</h2>
+<ul>
+<li><a href="http://apidocs.mailchimp.com/api/2.0/">API Docs</a></li>
+<li><a href="https://bitbucket.org/mailchimp/mailchimp-api-php">Composer module</a></li>
+</ul>
+<h3>Trigger</h3>
+<ul>
+<li>New Subscriber</li>
+<li>New Campaign</li>
+<li>New Group</li>
+<li>New List</li>
+<li>New Unsubscriber</li>
+</ul>
+<h3>Action</h3>
+<ul>
+<li>Add subscriber</li>
+<li>Unsubscribe email</li>
+</ul>
+
+		</div>
+
+			<footer>
+				<p>Tangler is developed and maintained by <a href="http://www.linkorb.com">LinkORB</a> -- We're hiring!</p>
+			</footer>
+
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+            <script>
+            $('pre').addClass('prettyprint');
+            </script>
+			<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+		</body>
+
+</html>
+

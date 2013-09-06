@@ -2,6 +2,8 @@
 	"site-title": "Tangler",
 	"footer-text": "Built with <a href=\"http://laktek.github.com/punch\">Punch</a>",
 	"navbar": [
-	    { "label": "Home", "href": "/" }
+	    { "label": "Home", "href": "/" },
+        { "label": "Modules", "href": "/modules" },
+        { "label": "Wishlist", "href": "/modules-wishlist" }
 	]
 }

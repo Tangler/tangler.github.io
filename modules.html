@@ -12,7 +12,10 @@
 
 			<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-			<link rel="stylesheet" type="text/css" media="screen" href="/css/all-1377536368000.css"> 
+			<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/site.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/my.css"> 
     </head>
 
     <body>
@@ -35,12 +38,25 @@
 
 
 		<div role="main">
-		<h1>Hah about</h1>
-<p>asdlkasd akjds akjhsdk</p>
-<p><code class="prettyprint">if ($bla&gt;0) {
-    echo &quot;bla=$bla&quot;
-}
-</code></p>
+		<h1>Tangler Modules</h1>
+<p>Tangler is super extendable through a simple PHP module system. </p>
+<p>Each module can provide:</p>
+<ul>
+<li>One or more <strong>Triggers</strong> (monitors stuff for events or changes)</li>
+</ul>
+<p>And/or</p>
+<ul>
+<li>One or more <strong>Actions</strong> (does stuff)</li>
+</ul>
+<p>Using a tangler config file, you can glue these triggers and actions together into an unlimited set of combinations!</p>
+<h2>Available modules</h2>
+<ul>
+<li><a href="module-file">File</a>: Allows you to work with local files and directories</li>
+<li><a href="module-smtp">Smtp</a>: Allows you to send e-mail messages through SMTP servers</li>
+<li><a href="module-hipchat">HipChat</a>: Allows you integrate with the HipChat API</li>
+</ul>
+<h2>Future modules</h2>
+<p>We maintain a list of modules on the <a href="/wishlist">wishlist</a> page for future ideas.</p>
 
 		</div>
 
