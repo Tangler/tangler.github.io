@@ -47,14 +47,26 @@ header .motto {
 
 h1 {
     text-align: left;
-    font-size: 200%; 
+    font-size: 300%; 
     font-family: "DinBd", arial;
     font-weight: normal;
     text-transform: lowercase; 
     color:#000000;
-
 }
 
+div[role=main] {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+h2 {
+    border-bottom: 2px solid #ff8000;
+}
+
+h3 {
+    font-size: 100%;
+    font-style: italic;
+}
 .prettyprinted {
     display: block;
     font-size: 80%;
@@ -69,6 +81,10 @@ p code {
 .navbar {
     text-align: left;
     background-color: #f0f0f0;
+    padding-left: 40px;
+    padding-right: 40px;
+
+
 }
 .navbar li a {
     font-family: "DinBd", arial;
