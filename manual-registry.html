@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>Tangler</title>
+			<meta name="description" content="">
+			<meta name="viewport" content="width=device-width">
+
+			<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+			<link rel="stylesheet" type="text/css" media="screen" href="/css/all-1378566458000.css"> 
+    </head>
+
+    <body>
+            <div class="followbar">
+                <a href="http://github.com/Tangler" target="_blanc"><img src="github.png" /></a>
+                <a href="http://facebook.com/tangler.io" target="_blanc"><img src="facebook.png" /></a>
+                <a href="http://twitter.com/tangler_io" target="_blanc"><img src="twitter.png" /></a>
+            </div>
+			<header>
+            <h1>Tangler</h1>
+            <div class="tagline">The Open Source Integration Engine</div>
+            <div class="motto">Are you familiar with <b>IFTTT</b> or <b>Zapier</b>? Then you'll feel right at home!</div>
+
+			</header>
+            
+            <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li>::</li>
+            <li><a href="/modules">Modules</a></li>
+            <li>::</li>
+            <li><a href="/modules-wishlist">Wishlist</a></li>
+            <li>::</li>
+            <li><a href="/manual">Manual</a></li>
+            <li>::</li>
+            <li><a href="http://github.com/Tangler" target="_blank">GitHub</a></li>
+            </ul>
+
+
+		<div role="main">
+		<h1>The Registry</h1>
+<p>In order to prevent triggers from being processed multiple times, Tangler uses a &#39;Registry&#39;.</p>
+<p>A &#39;Registry&#39; simply keeps track of all the triggers it already processed, and allows you to check if a &#39;new&#39; trigger was already processed before, based on a unique key.</p>
+<h2>How does it work?</h2>
+<p>Every processed trigger in the registry contains 2 parts:</p>
+<ul>
+<li>The <code>base</code>: usually the classname of the trigger (i.e. <code>Tangler\Module\File\newFileTrigger</code>)</li>
+<li>The <code>key</code>: Anything that uniquely identifies the trigger (i.e. <code>filename.txt_1378564674</code>)</li>
+</ul>
+<h3>Example of a &#39;key&#39; in the NewFileTrigger:</h3>
+<p>When monitorring a directory for new files, the key can be the filename + the file modification stamp.</p>
+<p>This way, no matter how often the trigger detects the file, it will only process it once.</p>
+<p>When you create a new file with another filename, the key will be unique, and the trigger will process.
+When you update the file, and the file modification stamp changes, the key will be unique, and the trigger will process.</p>
+<h3>Example of a &#39;key&#39; in the NewEmailTrigger:</h3>
+<p>When monitorring an IMAP account for new messages, you can use the hostname + username + mailbox + IMAP Message UID as a unique key.</p>
+<h2>Configuring the registry</h2>
+<p>If you don&#39;t configure anything, Tangler will store the registry information in a new SQLite file called <code>tangler.sqlite3</code>.
+The file will be created in the directory where you start tangler.</p>
+<p>Using an SQLite database as a registry works great for most installations.</p>
+<p>If you intend to create enormous registry databases, or scale tangler horizontally across multiple nodes, you have another option:
+You can configure the registry to store it&#39;s information in a database of your choosing.</p>
+<p>The default Tangler distribution comes with a PdoRegistry driver, which you can use to store registry information in any PDO supported database.</p>
+<p>To store your registry data in a MySQL database for example, you can add the following snippet to your tangler .xml file:</p>
+<pre><code>&lt;tangler&gt;
+    &lt;registry class=&quot;Tangler\Core\PdoRegistry&quot;&gt;
+        &lt;parameter key=&quot;dsn&quot;&gt;mysql:dbname=tangler;host=127.0.0.1&lt;/parameter&gt;
+        &lt;parameter key=&quot;username&quot;&gt;username&lt;/parameter&gt;
+        &lt;parameter key=&quot;password&quot;&gt;password&lt;/parameter&gt;
+    &lt;/registry&gt;
+&lt;/tangler&gt;</code></pre>
+<p>NOTE: When you change the configuration of your registry, it will most often start out empty. 
+This means that any trigger will be executed, even if it has been triggered before.</p>
+<h2>How do I use the registry in my own Triggers?</h2>
+<p>When developing new Triggers, you can easily use the registry to prevent triggers from being processed multiple times.</p>
+<p>A great example can be found in the &#39;newFileTrigger&#39; class. In short, your code will look something like the following:</p>
+<pre><code>namespace Tangler\Module\MyModule;
+
+use Tangler\Core\Interfaces\TriggerInterface;
+use Tangler\Core\AbstractTrigger;
+
+class NewExampleTrigger extends AbstractTrigger implements TriggerInterface
+{
+    public function init()
+    {
+        // perform your usual init code
+        // possibly registering existing triggers in the registry already
+    }
+
+    public function poll()
+    {
+        // Create a unique identifier for the current trigger
+        // Something involving unique id&#39;s, names, or timestamps usually works great
+        // The exact value of the key is not important, 
+        // as long as it&#39;s unique for your trigger
+        $key = &#39;some_unique_key&#39;;
+
+        if (!$this-&gt;isProcessed($key)) {
+            // Add your normal trigger processing code here..
+            $this-&gt;setProcessed($key);
+        }
+    }
+}</code></pre>
+
+		</div>
+
+			<footer>
+				<p>Tangler is developed and maintained by <a href="http://www.linkorb.com">LinkORB</a> -- We're hiring!</p>
+			</footer>
+
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+            <script>
+            $('pre').addClass('prettyprint');
+            </script>
+			<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+            <div class="followbar">
+                <a href="http://github.com/Tangler" target="_blanc"><img src="github.png" /></a>
+                <a href="http://facebook.com/tangler.io" target="_blanc"><img src="facebook.png" /></a>
+                <a href="http://twitter.com/tangler_io" target="_blanc"><img src="twitter.png" /></a>
+            </div>            
+		</body>
+
+</html>
+

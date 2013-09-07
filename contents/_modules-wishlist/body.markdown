@@ -64,6 +64,10 @@ Send SMS messages through Mollie API
 * [Website](http://www.mollie.nl)
 * [Composer module](https://packagist.org/packages/linkorb/mollie-sms-php)
 
+### Action
+
+- Send SMS
+
 ## Amazon S3
 
 ### Trigger
@@ -119,7 +123,7 @@ Send SMS messages through Mollie API
 
 ### Trigger
 
-- New Email
+- ~~New Email~~: available in the [IMAP module](module-imap)
 - New Mailbox
 
 ### Action

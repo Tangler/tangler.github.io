@@ -4,6 +4,7 @@
 	"navbar": [
 	    { "label": "Home", "href": "/" },
         { "label": "Modules", "href": "/modules" },
-        { "label": "Wishlist", "href": "/modules-wishlist" }
+        { "label": "Wishlist", "href": "/modules-wishlist" },
+        { "label": "Manual", "href": "/manual" }
 	]
 }

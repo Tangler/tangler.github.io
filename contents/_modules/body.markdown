@@ -20,4 +20,4 @@ Using a tangler config file, you can glue these triggers and actions together in
 
 ## Future modules
 
-We maintain a list of modules on the [wishlist](/wishlist) page for future ideas.
+We maintain a list of modules on the [wishlist](/modules-wishlist) page for future ideas.

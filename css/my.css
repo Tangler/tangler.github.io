@@ -81,22 +81,34 @@ p code {
 }
 
 pre {
-      border: 1px solid #e0e0e0;
-        border-radius: 4px;
-          margin: 10px 10px 40px 10px;
-            padding: 10px;
-              background-color: #ffffff;
-                overflow: auto;
-                  font-size: 14px;
-                    font-family: Consolas, "Liberation Mono", Courier, monospace;
-                }
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin: 10px 10px 40px 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    overflow: auto;
+    font-size: 14px;
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
 
-                code {
-                      white-space: pre;
-                        color: rgba(0,0,0, 1);
-                          .keyword         { font-weight: bold; color: #6089d4; }
-                            .string, .regexp { color: green }
-                              .class, .special { color: #6089d4 }
-                                .number          { color: red }
-                                  .comment         { color: grey }
-                              }
+code {
+    white-space: pre;
+    color: rgba(0,0,0, 1);
+    .keyword         { font-weight: bold; color: #6089d4; }
+    .string, .regexp { color: green }
+    .class, .special { color: #6089d4 }
+    .number          { color: red }
+    .comment         { color: grey }
+}
+
+
+.followbar {
+    text-align: right;
+}
+
+ .followbar  img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 20px;
+    }
+}
