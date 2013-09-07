@@ -1,0 +1,11 @@
+<tanglerdoc>
+    <autoload prefix="Tangler\Module\HipChat" path="../HipChat/src/" />
+    <autoload prefix="Tangler\Module\Smtp" path="../Smtp/src/" />
+    <autoload prefix="Tangler\Module\Imap" path="../Imap/src/" />
+    <autoload prefix="Tangler\Module\File" path="../Tangler/src/" />
+
+    <moduledoc class="Tangler\Module\File\Module" output="contents/module-file.json" />
+    <moduledoc class="Tangler\Module\Smtp\Module" output="contents/module-smtp.json" />
+    <moduledoc class="Tangler\Module\HipChat\Module" output="contents/module-hipchat.json" />
+    <moduledoc class="Tangler\Module\Imap\Module" output="contents/module-imap.json" />
+</tanglerdoc>

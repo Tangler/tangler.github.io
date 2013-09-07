@@ -122,9 +122,40 @@ code {
     text-align: right;
 }
 
- .followbar  img {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 20px;
-    }
+.followbar  img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 20px;
+}
+
+div.formitem label {
+    font-weight: bold;
+    display: block;
+}
+
+div.formitem {
+    margin-bottom: 10px;
+}
+
+div[role=main] img.docimage {
+    float: right;
+    width: 250px;
+}
+
+div[role=main] img.indeximage {
+    float: right;
+    width: 100px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.moduleentry {
+    clear: both;
+    display: block;
+    min-height: 120px;
+}
+
+
+.moduleentry h1 {
+    font-size: 150%;
 }
