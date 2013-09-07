@@ -42,7 +42,26 @@
 
 
 		<div role="main">
-		<h1>Module index</h1><div class="moduleentry"><a href="module-file"><img src="http://i.i.com.com/cnwk.1d/i/tim/2011/12/06/HardDriveIconX.png" class="indeximage" /></a><a href="module-file"><h1>File module</h1></a><p>This is the local file and directory module</p><ul><li>Trigger: New file trigger</li><li>Action: New file action</li></ul></div><div class="moduleentry"><a href="module-hipchat"><img src="http://osx.wdfiles.com/local--files/icon:hipchaticon/HipChatIcon.png" class="indeximage" /></a><a href="module-hipchat"><h1>HipChat module</h1></a><p>This is the HipChat Tangler module</p><ul><li>Trigger: New HipChat Message trigger</li><li>Action: Send HipChat Message</li></ul></div><div class="moduleentry"><a href="module-pushover"><img src="http://cdn.androidpolice.com/wp-content/uploads/2013/08/nexusae0_Pushover-Thumb.png" class="indeximage" /></a><a href="module-pushover"><h1>Pushover module</h1></a><p>Send push messages to your iOS and Android devices through pushover.net</p><ul><li>Action: New message action</li></ul></div><div class="moduleentry"><a href="module-smtp"><img src="http://www.inboundnow.com/wp-content/uploads/2012/12/outgoing-email-icon-300x240.jpg" class="indeximage" /></a><a href="module-smtp"><h1>SMTP module</h1></a><p>This is the SMTP module that allows you to send emails</p><ul><li>Action: New email action</li></ul></div><div class="moduleentry"><a href="module-imap"><img src="http://carolwatkins.co.uk/wp-content/uploads/2012/06/incoming-email-icon-150x150.jpg" class="indeximage" /></a><a href="module-imap"><h1>IMAP module</h1></a><p>This is the IMAP module</p><ul><li>Trigger: New email trigger</li></ul></div>
+		<img src="http://cdn.androidpolice.com/wp-content/uploads/2013/08/nexusae0_Pushover-Thumb.png" class="docimage" /><h1>Pushover module</h1>
+<div class="formitem"><label>Description</label>
+<span class="value">Send push messages to your iOS and Android devices through pushover.net</span></div>
+<div class="formitem"><label>Key</label>
+<span class="value">pushover</span></div>
+<div class="formitem"><label>Classname</label>
+<span class="value">Tangler\Module\Pushover\Module</span></div>
+<h2>Action: New message action</h2>
+<div class="formitem"><label>Description</label>
+<span class="value">This action sends a new pushover message</span></div>
+<div class="formitem"><label>Key</label>
+<span class="value">new_message</span></div>
+<div class="formitem"><label>Classname</label>
+<span class="value">Tangler\Module\Pushover\SendMessageAction</span></div>
+<ul>
+<li><code>token</code> (string): App token</li>
+<li><code>userkey</code> (string): User key</li>
+<li><code>message</code> (string): Message contents</li>
+</ul>
+
 		</div>
 
 			<footer>
