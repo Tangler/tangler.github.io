@@ -16,6 +16,7 @@ Using a tangler config file, you can glue these triggers and actions together in
 
 * [File](module-file): Allows you to work with local files and directories
 * [Smtp](module-smtp): Allows you to send e-mail messages through SMTP servers
+* [Imap](module-imap): Triggers when new email arrives in your IMAP account
 * [HipChat](module-hipchat): Allows you integrate with the HipChat API
 
 ## Future modules
