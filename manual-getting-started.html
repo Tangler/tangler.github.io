@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+			<meta charset="utf-8">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+			<title>Tangler</title>
+			<meta name="description" content="">
+			<meta name="viewport" content="width=device-width">
+
+			<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+			<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/site.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/my.css"> 
+    </head>
+
+    <body>
+            <div class="followbar">
+                <a href="http://github.com/Tangler" target="_blanc"><img src="github.png" /></a>
+                <a href="http://facebook.com/tangler.io" target="_blanc"><img src="facebook.png" /></a>
+                <a href="http://twitter.com/tangler_io" target="_blanc"><img src="twitter.png" /></a>
+            </div>
+			<header>
+            <h1>Tangler</h1>
+            <div class="tagline">The Open Source Integration Engine</div>
+            <div class="motto">Are you familiar with <b>IFTTT</b> or <b>Zapier</b>? Then you'll feel right at home!</div>
+
+			</header>
+            
+            <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li>::</li>
+            <li><a href="/modules">Modules</a></li>
+            <li>::</li>
+            <li><a href="/modules-wishlist">Wishlist</a></li>
+            <li>::</li>
+            <li><a href="/manual">Manual</a></li>
+            <li>::</li>
+            <li><a href="http://github.com/Tangler" target="_blank">GitHub</a></li>
+            </ul>
+
+
+		<div role="main">
+		<h1>Getting started with Tangler</h1>
+<p>This short guide will take you through your first steps in Tangler.
+Once you&#39;ve seen how it works, you are ready to create your own Tangler files.
+This is where the fun starts, as the possibilities are endless!</p>
+<h2>Installing Tangler</h2>
+<pre><code># Get the main sourcecode.
+git clone git@github.com:Tangler/Tangler.git
+
+# Install dependencies in ./vendor/
+composer.phar install --prefer-dist</code></pre>
+<p>p.s.: don&#39;t have composer? <a href="http://getcomposer.org/download/">get it here</a>, it&#39;s awesome!</p>
+<h2>Running examples</h2>
+<p>Let&#39;s go through some simple examples to get you started:</p>
+<h3>file2smtp</h3>
+<p>Edit <code>example/file2smtp.xml</code> </p>
+<pre><code>&lt;tangler&gt;
+    &lt;channel&gt;
+        &lt;key&gt;file2smtp&lt;/key&gt;
+        &lt;label&gt;Send all new files in a given directory by email&lt;/label&gt;
+        &lt;description&gt;
+            Monitors the source directory for new files. 
+            When new files are detected, they are sent through smtp
+            to the provided email address.
+        &lt;/description&gt;
+
+        &lt;!-- 
+            Configure the trigger and it&#39;s parameters 
+        --&gt;
+        &lt;trigger class=&quot;Tangler\Module\File\NewFileTrigger&quot;&gt;
+            &lt;parameter key=&quot;dir&quot;&gt;/tmp/tangler.in/&lt;/parameter&gt;
+        &lt;/trigger&gt;
+
+        &lt;!-- 
+            Configure the action and it&#39;s parameters, 
+            using variables provided by the trigger 
+        --&gt;
+        &lt;action class=&quot;Tangler\Module\Smtp\SendEmailAction&quot;&gt;
+            &lt;parameter key=&quot;smtp.host&quot;&gt;mail.example.web&lt;/parameter&gt;
+            &lt;parameter key=&quot;smtp.username&quot;&gt;myusername&lt;/parameter&gt;
+            &lt;parameter key=&quot;smtp.password&quot;&gt;mypassword&lt;/parameter&gt;
+            &lt;parameter key=&quot;subject&quot;&gt;New file: {{filename}}&lt;/parameter&gt;
+            &lt;parameter key=&quot;from&quot;&gt;tangler@example.web&lt;/parameter&gt;
+            &lt;parameter key=&quot;to&quot;&gt;me@example.web&lt;/parameter&gt;
+            &lt;parameter key=&quot;body&quot;&gt;Hey, this is Tangler,
+                I spotted a new file: &#39;{{filename}}&#39;:
+                {{content}}
+                Kind regards,
+                Tangler
+            &lt;/parameter&gt;
+        &lt;/action&gt;
+    &lt;/channel&gt;
+&lt;/tangler&gt;</code></pre>
+<p>First up, enter or edit the trigger parameter key <code>dir</code> and enter a valid source directory (for example: <code>/tmp/tangler.in/</code>), 
+Then edit the action parameters, especially the SMTP variables like <code>smtp.hostname</code>, <code>smtp.username</code> and <code>smtp.password</code>.</p>
+<p>Now you can start your tangler file like this:</p>
+<pre><code>vendor/bin/tangler run:file example/file2smtp.xml</code></pre>
+<p>Copy a textfile into <code>/tmp/tangler.io/</code> and see how Tangler picks it up, and emails it to you!</p>
+<h3>imap2hipchat</h3>
+<p>Edit <code>example/imap2hipchat.xml</code> and enter a the imap credentials in the trigger section.</p>
+<p>Obtain an <code>apikey</code> here: <a href="https://www.hipchat.com/admin/api"><a href="https://www.hipchat.com/admin/api">https://www.hipchat.com/admin/api</a></a>.
+View the available rooms here: <a href="https://www.hipchat.com/admin/rooms"><a href="https://www.hipchat.com/admin/rooms">https://www.hipchat.com/admin/rooms</a></a> and find the <code>api roomid</code> of the room you want to publish your messages to.</p>
+<p>Now you can start your tangler file like this:</p>
+<pre><code>vendor/bin/tangler run:file example/imap2hipchat.xml</code></pre>
+<p>Now send an email to the provided imap account and watch Tangler notify you in HipChat with subject, sender, etc!</p>
+<h2>You are reading to start Tangling!</h2>
+<p>Now that you&#39;ve seen the basics, it&#39;s time to create your own Tangler files! 
+Check out the <a href="modules">available modules</a>, and see what Triggers and Actions they provide.</p>
+<p>We are looking forward to hearing about the amazing things you&#39;ll create...
+Be sure to share your creations with us, and we&#39;ll share them on our 
+<a href="https://twitter.com/tangler_io">Twitter</a> and <a href="https://www.facebook.com/tangler.io">Facebook</a> accounts to inspire others!</p>
+<p>Happy Tangling!<br><em>Team Tangler</em></p>
+
+		</div>
+
+			<footer>
+				<p>Tangler is developed and maintained by <a href="http://www.linkorb.com">LinkORB</a> -- We're hiring!</p>
+			</footer>
+
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+            <script>
+            $('pre').addClass('prettyprint');
+            </script>
+			<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+            <script>
+              (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+              (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+              })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+              ga('create', 'UA-5382953-27', 'tangler.io');
+              ga('send', 'pageview');
+
+            </script>
+            <div class="followbar">
+                <a href="http://github.com/Tangler" target="_blanc"><img src="github.png" /></a>
+                <a href="http://facebook.com/tangler.io" target="_blanc"><img src="facebook.png" /></a>
+                <a href="http://twitter.com/tangler_io" target="_blanc"><img src="twitter.png" /></a>
+            </div>            
+		</body>
+
+</html>
+

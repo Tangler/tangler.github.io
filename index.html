@@ -12,7 +12,10 @@
 
 			<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-			<link rel="stylesheet" type="text/css" media="screen" href="/css/all-1378579389000.css"> 
+			<link rel="stylesheet" type="text/css" media="screen" href="/css/normalize.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/site.css">
+<link rel="stylesheet" type="text/css" media="screen" href="/css/my.css"> 
     </head>
 
     <body>
@@ -55,47 +58,23 @@
 <p>It allows your script or application to work with <strong>any</strong> of the <a href="modules.html">available modules</a>, 
 no matter what programming language you use.</p>
 <h2>How does it work?</h2>
-<p>Tangler let&#39;s you define <code>channels</code>. For example, you can create your own <code>Email to HipChat</code> channel.</p>
+<p>In Tangler, you create <code>channels</code>. For example, you can create your own <code>Email to Dropbox</code> channel.</p>
 <p>Each <code>channel</code> contains:</p>
 <ol>
 <li>A <code>trigger</code> (i.e. new email in specified IMAP account)</li>
-<li>One or more <code>actions</code> (i.e. send a message to HipChat)</li>
+<li>One or more <code>actions</code> (i.e. create file in Dropbox)</li>
 </ol>
-<p>Tangler will watch for triggers, and as soon as they happen, pass on the information to the selected actions. 
-This allows you to use the information from the Trigger (like the email subject, sender, body, attachments) in the Action (like the HipChat message, or sendername).</p>
-<h2>Example configuration</h2>
-<p>This is an example configuration file for the above <code>file2email.xml</code> example: </p>
-<pre><code>&lt;tangler&gt;
-    &lt;channel&gt;
-        &lt;key&gt;file2email&lt;/key&gt;
-        &lt;label&gt;File to Email&lt;/label&gt;
-        &lt;description&gt;Send an email by creating a file&lt;/description&gt;
-        &lt;trigger class=&quot;Tangler\Module\File\NewFileTrigger&quot;&gt;
-            &lt;parameter key=&quot;dir&quot;&gt;/tmp/demo.in/&lt;/parameter&gt;
-        &lt;/trigger&gt;
-        &lt;action class=&quot;Tangler\Module\Smtp\SendEmailAction&quot;&gt;
-            &lt;parameter key=&quot;smtp.host&quot;&gt;mail.example.web&lt;/parameter&gt;
-            &lt;parameter key=&quot;smtp.username&quot;&gt;myusername&lt;/parameter&gt;
-            &lt;parameter key=&quot;smtp.password&quot;&gt;mypassword&lt;/parameter&gt;
-            &lt;parameter key=&quot;subject&quot;&gt;New file: {{filename}}&lt;/parameter&gt;
-            &lt;parameter key=&quot;from&quot;&gt;tangler@example.web&lt;/parameter&gt;
-            &lt;parameter key=&quot;to&quot;&gt;me@example.web&lt;/parameter&gt;
-            &lt;parameter key=&quot;body&quot;&gt;{{filename}}: {{contents}}&lt;/parameter&gt;
-        &lt;/action&gt;        
-    &lt;/channel&gt;
-&lt;/tangler&gt;</code></pre>
-<p>You can run this Tangler by typing: <code>tangler file2email.xml</code></p>
-<p>This will start Tangler, which will monitor the directory <code>/tmp/demo.in</code> for new files.</p>
-<p>As soon as you create a new file there, 
-Tangler will e-mail that file to you.</p>
+<p>Tangler will watch for triggers, and as soon as they happen, pass on the information to the selected actions.</p>
+<p>This allows you to use the information from the Trigger (like the email subject, sender, body, attachments) in the Action (like the Dropbox filename, content, etc).</p>
+<p>Check out our simple <a href="manual-getting-started">Getting started</a> guide to get Tangling in 5 minutes!</p>
 <h2>Extendable through modules</h2>
-<p>Tangler is super extendable through a simple PHP module system. Read all about the <a href="modules.html">modules</a>.</p>
+<p>Tangler is super extendable through a simple PHP module system. Read all about the <a href="modules.html">available modules</a>, or create your own!</p>
 <h2>Source code and contributions:</h2>
 <p>Ready to hack with us? Check out the project and it&#39;s modules on GitHub:</p>
 <ul>
 <li><a href="http://github.com/Tangler">github</a></li>
 </ul>
-<p>Developed a new Module yourself? Please let us know so we can share it on our module list page!</p>
+<p>Developed a new Module yourself? Please let us know so we can share it on our module index page!</p>
 
 		</div>
 
