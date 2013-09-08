@@ -6,8 +6,10 @@
     <autoload prefix="Tangler\Module\Imap" path="../Imap/src/" />
     <autoload prefix="Tangler\Module\Mollie" path="../Mollie/src/" />
     <autoload prefix="Tangler\Module\Dropbox" path="../Dropbox/src/" />
+    <autoload prefix="Tangler\Module\Twitter" path="../Twitter/src/" />
 
     <moduledoc class="Tangler\Module\File\Module" output="contents/module-file.json" />
+    <moduledoc class="Tangler\Module\Twitter\Module" output="contents/module-twitter.json" />
     <moduledoc class="Tangler\Module\Dropbox\Module" output="contents/module-dropbox.json" />
     <moduledoc class="Tangler\Module\HipChat\Module" output="contents/module-hipchat.json" />
     <moduledoc class="Tangler\Module\Pushover\Module" output="contents/module-pushover.json" />
